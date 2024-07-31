@@ -1,0 +1,47 @@
+﻿@model doan.Models.Nhacungcap 
+@{
+    ViewData["Title"] = "Thông tin nhà cung cấp";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item" style="font-family:'Segoe UI'; font-size: 16px">
+                <i class="anticon anticon-home m-r-5" style="color: orangered"></i>
+                Home
+            </a>
+            <a class="breadcrumb-item" asp-area="Admin" asp-controller="AdminNhacungcaps" asp-action="Index" style="font-family:'Segoe UI'; font-size: 16px">Danh sách nhà cung cấp</a>
+            <span class="breadcrumb-item active" style="font-family:'Segoe UI'; font-size: 16px">Thông tin chi tiết</span>
+        </nav>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title" style="color: orangered; font-size: 20px">Thông tin nhà cung cấp</h4>
+        <div class="table-responsive">
+            <table class="product-info-table m-t-20">
+                <tbody>
+                    <tr>
+                        <td style="font-weight:bold">ID:</td>
+                        <td class="text-dark font-weight-semibold">@Model.MaNcc</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold">Tên NCC:</td>
+                        <td>@Model.TenNcc</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold">Địa chỉ:</td>
+                        <td>@Model.DiaChi</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold">Email:</td>
+                        <td>@Model.Email</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

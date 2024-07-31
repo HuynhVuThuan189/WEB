@@ -1,0 +1,54 @@
+﻿@model doan.Models.Hinhanh 
+@{
+    ViewData["Title"] = "Xác nhận xóa hình ảnh";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item" style="font-family:'Segoe UI'; font-size: 16px">
+                <i class="anticon anticon-home m-r-5" style="color: orangered"></i>
+                Home
+            </a>
+            <a class="breadcrumb-item" asp-area="Admin" asp-controller="AdminHinhanhs" asp-action="Index" style="font-family:'Segoe UI'; font-size: 16px">Danh sách hình ảnh</a>
+            <span class="breadcrumb-item active" style="font-family:'Segoe UI'; font-size: 16px">Xác nhận xóa</span>
+        </nav>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title" style="color: orangered; font-size: 20px">Xác nhận xóa hình ảnh</h4>
+        <div class="table-responsive">
+            <table class="product-info-table m-t-20">
+                <tbody>
+                    <tr>
+                        <td style="font-weight:bold">ID:</td>
+                        <td class="text-dark font-weight-semibold">@Model.MaHinhAnh</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold">Link hình ảnh:</td>
+                        <td>@Model.LinkHinhAnh</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold">Tên sản phẩm:</td>
+                        <td>@Model.MaSpNavigation.TenSp</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold">Xác nhận xóa:</td>
+                        <td>
+                            <form asp-action="Delete">
+                                <input type="hidden" asp-for="MaHinhAnh" />
+                                <input type="submit" value="Delete" class="btn btn-danger rounded" /> 
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+

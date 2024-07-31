@@ -1,0 +1,178 @@
+﻿<div class="side-nav">
+    <div class="side-nav-inner">
+        <ul class="side-nav-menu scrollable">
+            <li class="nav-item">
+                <a class="dropdown-toggle" asp-area="Admin" asp-controller="Home" asp-action="Index">
+                    <span class="icon-holder">
+                        <i class="anticon anticon-dashboard" style="color: orangered"></i>
+                    </span>
+                    <span class="title" style="font-family:'Segoe UI'; font-size: 16px">Bảng điều khiển</span>
+                    <span class="arrow">
+                        <i class="arrow-icon"></i>
+					</span>
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="dropdown-toggle" href="javascript:void(0);">
+                    <span class="icon-holder">
+                        <i class="anticon anticon-form" style="color: orangered"></i>
+                    </span>
+                    <span class="title" style="font-family:'Segoe UI'; font-size: 16px">Quản lý đơn hàng</span>
+                    <span class="arrow">
+                        <i class="arrow-icon"></i>
+                    </span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a asp-area="Admin" asp-controller="AdminDondathangs" asp-action="Index">Danh sách đơn hàng</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="dropdown-toggle" href="javascript:void(0);">
+                    <span class="icon-holder">
+                        <i class="fab fa-product-hunt" style="color: orangered"></i>
+                    </span>
+                    <span class="title" style="font-family:'Segoe UI'; font-size: 16px">Quản lý sản phẩm</span>
+                    <span class="arrow">
+                        <i class="arrow-icon"></i>
+                    </span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a asp-area="Admin" asp-controller="AdminSanphams" asp-action="Index">Danh sách sản phẩm</a>
+                    </li>
+                    <li>
+                        <a asp-area="Admin" asp-controller="AdminDanhmucsps" asp-action="Index">Danh sách danh mục sản phẩm</a>
+                    </li>
+                    <li>
+                        <a asp-area="Admin" asp-controller="AdminHinhanhs" asp-action="Index">Hình ảnh sản phẩm</a>
+                    </li>
+
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="dropdown-toggle" href="javascript:void(0);">
+                    <span class="icon-holder">
+                        <i class="anticon anticon-user-add" style="color: orangered"></i>
+                    </span>
+                    <span class="title" style="font-family:'Segoe UI'; font-size: 16px">Quản lý khách hàng</span>
+                    <span class="arrow">
+                        <i class="arrow-icon"></i>
+                    </span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a asp-area="Admin" asp-controller="AdminKhachhangs" asp-action="Index">Danh sách khách hàng</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="dropdown-toggle" href="javascript:void(0);">
+                    <span class="icon-holder">
+                        <i class="fas fa-male" style="color: orangered"></i>
+                    </span>
+                    <span class="title" style="font-family:'Segoe UI'; font-size: 16px">Quản lý nhân viên</span>
+                    <span class="arrow">
+                        <i class="arrow-icon"></i>
+                    </span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a asp-area="Admin" asp-controller="AdminNhanviens" asp-action="Index">Danh sách nhân viên</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="dropdown-toggle" href="javascript:void(0);">
+                    <span class="icon-holder">
+                        <i class="anticon anticon-usergroup-add" style="color: orangered"></i>
+                    </span>
+                    <span class="title" style="font-family:'Segoe UI'; font-size: 16px">Quản lý các đơn vị</span>
+                    <span class="arrow">
+                        <i class="arrow-icon"></i>
+                    </span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a asp-area="Admin" asp-controller="AdminNhacungcaps" asp-action="Index">Danh sách các nhà cung cấp</a>
+                    </li>
+                    <li>
+                        <a asp-area="Admin" asp-controller="AdminNhavanchuyens" asp-action="Index">Danh sách các nhà vận chuyển</a>
+                    </li>
+
+                </ul>
+            </li>
+        <li class="nav-item dropdown">
+            <a class="dropdown-toggle" href="javascript:void(0);">
+                <span class="icon-holder">
+                        <i class="anticon anticon-area-chart" style="color: orangered"></i>
+                </span>
+                    <span class="title" style="font-family:'Segoe UI'; font-size: 16px">Thống kê</span>
+                <span class="arrow">
+                    <i class="arrow-icon"></i>
+                </span>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a asp-area="Admin" asp-controller="ThongKe" asp-action="Top10DonHang">Top 10 đơn hàng</a>
+                </li>
+                <li>
+                    <a asp-area="Admin" asp-controller="ThongKe" asp-action="TK_NhaVanChuyen">Lượt vận chuyển của Nhà vận chuyển</a>
+                </li>
+                <li>
+                    <a asp-area="Admin" asp-controller="ThongKe" asp-action="TK_KhachHang">Thống kê loại khách hàng</a>
+                </li>
+                <li>
+                    <a asp-area="Admin" asp-controller="ThongKe" asp-action="SanPham_DanhMuc">Thống kê danh mục sản phẩm</a>
+                </li>
+                <li>
+                    <a asp-area="Admin" asp-controller="ThongKe" asp-action="DanhThu_Thang">Thống kê doanh số theo tháng</a>
+                </li>
+
+                <li>
+                    <a asp-area="Admin" asp-controller="ThongKe" asp-action="DoanhThu_Ngay">Thống kê doanh số theo ngày</a>
+                </li>
+
+            </ul>
+        </li>
+            <li class="nav-item dropdown">
+                <a class="dropdown-toggle" href="javascript:void(0);">
+                    <span class="icon-holder">
+                        <i class="fas fa-database"style="color: orangered"></i>
+                    </span>
+                    <span class="title" style="font-family:'Segoe UI'; font-size: 16px">Quản lý hệ thống</span>
+                    <span class="arrow">
+                        <i class="arrow-icon"></i>
+                    </span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a asp-area="Admin" asp-controller="AdminTaiKhoans" asp-action="Index">Quản lý tài khoản</a>
+                    </li>
+
+                    <li>
+                        <a asp-area="Admin" asp-controller="AdminRoles" asp-action="Index">Quản lý quyền truy cập</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="dropdown-toggle" href="javascript:void(0);">
+                    <span class="icon-holder">
+                        <i class="anticon anticon-gift" style="color: orangered"></i>
+                    </span>
+                    <span class="title" style="font-family:'Segoe UI'; font-size: 16px">Quản lý khuyến mãi</span>
+                    <span class="arrow">
+                        <i class="arrow-icon"></i>
+                    </span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a asp-area="Admin" asp-controller="AdminVouchers" asp-action="Index">Danh sách các voucher</a>
+                    </li>
+                    
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>

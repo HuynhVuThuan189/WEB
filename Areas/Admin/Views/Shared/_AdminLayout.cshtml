@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html> 
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Home-Admin</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/images/logo/logo.jpg">
+
+    <!-- page css -->
+    <link href="~/Adminassets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet">
+
+    <!-- Core css -->
+    <link href="~/Adminassets/css/app.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="app">
+        <div class="layout">
+            <!-- Header START -->
+            <div class="header">
+                <div class="logo logo-dark">
+                    <a  asp-controller="Home" asp-action="Index" style="padding-top: 5px">
+                        <img src="/assets/images/logo/logotext.png" alt="Logo" style = "width: 250px; height: auto">
+                    </a>
+                </div>
+                <div class="nav-wrap">
+                    <ul class="nav-left">
+                        <li class="desktop-toggle">
+                            <a href="javascript:void(0);">
+                                <i class="anticon"></i>
+                            </a>
+                        </li>
+                        <li class="mobile-toggle">
+                            <a href="javascript:void(0);">
+                                <i class="anticon"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Header END -->
+            <!-- Side Nav START -->
+            @await Html.PartialAsync("_SideNavPatialView.cshtml")
+            <!-- Side Nav END -->
+            <!-- Page Container START -->
+            <div class="page-container">
+
+                <!-- Content Wrapper START -->
+                <div class="main-content">
+                    @RenderBody()
+                </div>
+                <!-- Content Wrapper END -->
+                <!-- Footer START -->
+                <footer class="footer">
+                    <div class="footer-content">
+                        <a   href="../Home" class="m-b-0">Đi đến cửa hàng Fivemen</a>
+                        <span>
+                            <a asp-action="Index" class="m-b-0">Về lại trang chủ Admin</a>
+                            
+                        </span>
+                    </div>
+                </footer>
+                <!-- Footer END -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Core Vendors JS -->
+    <script src="~/Adminassets/js/vendors.min.js"></script>
+
+    <!-- page js -->
+    <script src="~/Adminassets/vendors/chartjs/Chart.min.js"></script>
+    <script src="~/Adminassets/js/pages/dashboard-e-commerce.js"></script>
+
+    <!-- Core JS -->
+    <script src="~/Adminassets/js/app.min.js"></script>
+    @await Component.InvokeAsync("Notyf")
+    @await RenderSectionAsync("Scripts", required: false) 
+</body>
+
+</html>

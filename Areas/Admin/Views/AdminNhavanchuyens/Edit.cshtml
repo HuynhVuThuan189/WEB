@@ -1,0 +1,49 @@
+﻿@model doan.Models.Nhavanchuyen 
+@{
+    ViewData["Title"] = "Chỉnh sửa thông tin đơn vị vận chuyển";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item" style="font-family:'Segoe UI'; font-size: 16px">
+                <i class="anticon anticon-home m-r-5" style="color: orangered"></i>
+                Home
+            </a>
+            <a class="breadcrumb-item" asp-area="Admin" asp-controller="AdminNhavanchuyens" asp-action="Index" style="font-family:'Segoe UI'; font-size: 16px">Danh sách đơn vị vận chuyển</a>
+            <span class="breadcrumb-item active" style="font-family:'Segoe UI'; font-size: 16px">Chỉnh sửa thông tin</span>
+        </nav>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="MaNvc" />
+            <div class="form-group">
+                <label asp-for="TenNvc" class="control-label"style="font-weight:bold">Tên ĐVVC</label>
+                <input asp-for="TenNvc" class="form-control" />
+                <span asp-validation-for="TenNvc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DiaChi" class="control-label"style="font-weight:bold">Địa chỉ</label>
+                <input asp-for="DiaChi" class="form-control" />
+                <span asp-validation-for="DiaChi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"style="font-weight:bold">Email</label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Lưu thay đổi" class="btn btn-warning rounded" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

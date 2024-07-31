@@ -1,0 +1,208 @@
+@using PagedList.Core.Mvc
+@model PagedList.Core.IPagedList<doan.Models.Sanpham>
+@{
+    int PageCurrent = ViewBag.CurrentPage;
+    int PageNext = PageCurrent + 1;
+    ViewData["Title"] = "Index" + ViewBag.CurrentPage;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- Begin Slider Area -->
+<div class="slider-area">
+    <!-- Main Slider -->
+    <div class="swiper-container main-slider swiper-arrow with-bg_white">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide animation-style-01">
+                <div class="slide-inner bg-height" data-bg-image="/assets/images/slider/bg/logotext1.jpg">               
+                    <div class="container">
+                        <div class="parallax-with-content">
+                            <div class="slide-content rounded" style="background-color: rgba(255,80,0,0.2)">
+                                <span class="title mb-3 text-white" style="font-family:'Segoe UI'">Cà phê rang xay</span>
+                                <h2 class="sub-title mb-9 text-info" style="font-family:'Segoe UI'">Cà phê rang xay bằng công thức HTN độc quyền</h2>
+                                <div class="button-wrap">
+                                    <a class="btn btn-custom-size lg-size btn-warning btn-white-hover rounded" href="shop.html">Mua ngay!</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide animation-style-01">
+                <div class="slide-inner bg-height" data-bg-image="/assets/images/slider/bg/logotext3.jpg">                   
+                    <div class="container">
+                        <div class="parallax-with-content">
+                            <div class="slide-content rounded" style="background-color: rgba(255,80,0,0.2)">
+                                <span class="title mb-3 text-white" style="font-family:'Segoe UI'">HTN coffee</span>
+
+                                <h2 class="sub-title mb-9 text-info" style="font-family:'Segoe UI'">Cà phê rang nguyên chất</h2>
+
+                                <div class="button-wrap">
+                                    <a class="btn btn-custom-size lg-size btn-warning btn-white-hover rounded" href="shop.html">Mua ngay!</a>
+                                </div>
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination with-bg d-md-none"></div>
+
+        <!-- Add Arrows -->
+        <div class="swiper-button-next bg-warning rounded" style="color: black"></div>
+        <div class="swiper-button-prev bg-warning rounded" style="color: black"></div>
+    </div>
+</div>
+<!-- Slider Area End Here -->
+<!-- Begin Product Area -->
+<div class="product-area pt-9">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="title pb-5 text-center" style="font-family:'Segoe UI'; color:orangered">CÁC DÒNG SẢN PHẨM</h2>
+                <ul class="nav product-tab-nav pb-10" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a asp-controller="Sanpham" asp-action="Index" class="nav-link">
+                            <div class="product-tab-icon" style="background-color: #ff8531">
+                                <img src="~/assets/images/icon/coffee.png" alt="Product Icon">
+                            </div>
+                            Tất cả sản phẩm
+                        </a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a asp-controller="Sanpham" asp-action="List" asp-route-id="1" class="nav-link">
+                            <div class="product-tab-icon" style="background-color: #ff9348">
+                                <img src="~/assets/images/icon/cafehat.png" alt="Product Icon">
+                            </div>
+                            Cà phê hạt
+                        </a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a asp-controller="Sanpham" asp-action="List" asp-route-id="2" class="nav-link">
+                            <div class="product-tab-icon" style="background-color: #ffa05f">
+                                <img src="~/assets/images/icon/caferang.png" alt="Product Icon">
+                            </div>
+                            Cà phê rang
+                        </a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a asp-controller="Sanpham" asp-action="List" asp-route-id="3" class="nav-link">
+                            <div class="product-tab-icon" style="background-color: #ffae76">
+                                <img src="~/assets/images/icon/caferangxay.png" alt="Product Icon">
+                            </div>
+                            Cà phê rang xay
+                        </a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a asp-controller="Sanpham" asp-action="List" asp-route-id="4" class="nav-link">
+                            <div class="product-tab-icon" style="background-color: #ffc9a3">
+                                <img src="~/assets/images/icon/cake-slice.png" alt="Product Icon">
+                            </div>
+                            Bánh ngọt
+                        </a>
+                    </li>
+                </ul>
+                <hr style="color:orangered" />
+                <h2 class="title pb-5 text-center pt-5" style="font-family:'Segoe UI'; color:orangered">TẤT CẢ SẢN PHẨM</h2>
+
+                <div class="tab-content" id="myTabContent">
+
+                    <div class="tab-pane fade show active" id="all-items" role="tabpanel" aria-labelledby="all-items-tab">
+                        <div class="product-item-wrap row">
+                            @if (Model != null)
+
+                            {
+                                var stt = 0;
+                                foreach (var item in Model)
+                                {
+                                    <div class="col-xl-3 col-lg-4 col-sm-6">
+                                        <div class="product-item" style="background-color:bisque">
+                                            <div class="product-img img-zoom-effect rounded">
+                                                <a href="single-product.html">
+
+                                                    @if (item.Hinhanh.Any())
+                                                    {
+                                                        var firstImage = item.Hinhanh.FirstOrDefault();
+                                                        <img class="img-full border-top" src="@firstImage.LinkHinhAnh" alt="Product Images" width="300" height="300">
+                                                    }
+                                                    else
+                                                    {
+                                                        <img class="img-full border-top" src="path_to_default_image" alt="Default Image" width="300" height="300">
+                                                    }
+                                                </a>
+                                                <div class="product-add-action">
+                                                    <ul>
+                                                        <li>
+                                                            @{
+                                                                stt += 1;
+                                                                var id_add = "add_cart5" + @stt.ToString();
+                                                            }
+                                                            <form action="/GioHang/Add_cart?product_id=@item.MaSp" method="post" id="@id_add">
+                                                                <a class="bg-warning rounded" href="#" onclick="document.getElementById('@id_add').submit();">
+                                                                    <i class="pe-7s-cart" style="font-size:24px; font-weight:bold"></i>
+                                                                </a>
+                                                            </form>
+                                                        </li>                                      
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="product-content border-bottom" style="height:140px; font-family:'Segoe UI'">
+                                                <a class="product-name" href="single-product.html">
+                                                    @item.TenSp
+                                                </a>
+                                                <div class="price-box pb-1" style="font-weight:bold; color:red">
+                                                    @{
+                                                        string tam = @item.GiaTien.Value.ToString("#,##0") + " VNĐ";                                                        
+                                                    }
+                                                    <span>@tam</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                            <div class="pagination-area pt-10">
+                                <ul class="pagination justify-content-center pb-5">
+                                    <pager class="pager-container" options="@PagedListRenderOptions.Bootstrap4PageNumbersOnly" list="@Model" asp-area="" asp-controller="Home" asp-action="Index" />
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr style="color:orangered" />
+            </div>
+        </div>
+    </div> 
+</div>
+    
+    <!-- Product Area End Here -->
+    <!-- Begin Promotion Area -->
+<div class="promotion-area pt-5 pb-5">
+        <div class="container">
+        <h2 class="title pb-5 text-center" style="font-family:'Segoe UI'; color:orangered">CHƯƠNG TRÌNH KHUYẾN MÃI</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                <div class="promotion-item">
+                    <div class="promotion-img">
+                        <img src="~/assets/images/promotion/km1.jpg" alt=Promotion Icon" width="400" height="600">
+                        </div>                       
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="promotion-item">
+                    <div class="promotion-img">
+                        <img src="~/assets/images/promotion/km2.jpg" alt="Promotion Icon" width="400" height="600">
+                        </div>                       
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                <div class="promotion-item">
+                    <div class="promotion-img">
+                        <img src="~/assets/images/promotion/km3.jpg" alt="Promotion Icon" width="400" height="600">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Promotion Area End Here -->
+

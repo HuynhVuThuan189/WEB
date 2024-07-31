@@ -1,0 +1,46 @@
+﻿@model doan.Models.Danhmucsp 
+
+@{
+    ViewData["Title"] = "Chỉnh sửa danh mục";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item" style="font-family:'Segoe UI'; font-size: 16px">
+                <i class="anticon anticon-home m-r-5" style="color: orangered"></i>
+                Home
+            </a>
+            <a class="breadcrumb-item" asp-area="Admin" asp-controller="AdminDanhmucsps" asp-action="Index" style="font-family:'Segoe UI'; font-size: 16px">Danh sách danh mục sản phẩm</a>
+            <span class="breadcrumb-item active"style="font-family:'Segoe UI'; font-size: 16px">Chỉnh sửa danh mục</span>
+        </nav>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="MaDanhMuc" />
+            <div class="form-group">
+                <label asp-for="TenDanhMuc" class="control-label" style="font-weight:bold">Tên danh mục</label>
+                <input asp-for="TenDanhMuc" class="form-control" />
+                <span asp-validation-for="TenDanhMuc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MoTa" class="control-label" style="font-weight:bold">Mô tả</label>
+                <input asp-for="MoTa" class="form-control" />
+                <span asp-validation-for="MoTa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Lưu thay đổi" class="btn btn-warning" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

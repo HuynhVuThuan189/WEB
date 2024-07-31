@@ -1,0 +1,72 @@
+﻿@model doan.Models.Dondathang 
+
+@{
+    ViewData["Title"] = "Xóa đơn đặt hàng";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item" style="font-family:'Segoe UI'; font-size: 16px"><i class="anticon anticon-home m-r-5"style="color: orangered"></i>Home</a>
+            <a class="breadcrumb-item" asp-area="Admin" asp-controller="AdminDondathangs" asp-action="Index" style="font-family:'Segoe UI'; font-size: 16px">Danh sách đơn đặt hàng</a>
+            <span class="breadcrumb-item active" style="font-family:'Segoe UI'; font-size: 16px">Xóa hóa đơn</span>
+        </nav>
+    </div>
+</div>
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title" style="color: orangered; font-size: 20px">Đơn hàng @Model.MaDdh</h4>
+        <div class="table-responsive">
+            <table class="product-info-table m-t-20">
+                <tbody>
+                    <tr>
+                        <td style="font-weight:bold">ID:</td>
+                        <td class="text-dark font-weight-semibold">@Model.MaDdh</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold">Tên khách hàng:</td>
+                        <td>@Model.MaKhNavigation.TenKh</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold">Tên Voucher:</td>
+                        <td>@Model.MaVoucherNavigation.TenVoucher</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold">Tổng đơn hàng:</td>
+                        <td>@Model.TongDonHang.Value.ToString("#,##0") VNĐ</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold">Số tiền giảm:</td>
+                        <td>@Model.SoTienGiam.Value.ToString("#,##0") VNĐ</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold">Thành tiền:</td>
+                        <td>@Model.ThanhTien.Value.ToString("#,##0") VNĐ</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold">Nhân viên thực hiện đơn hàng:</td>
+                        <td>@Model.MaNvNavigation.TenNv</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold">Ngày đặt hàng:</td>
+                        <td>@String.Format("{0:dd/MM/yyyy}", Model.NgayDatHang)</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold">Đơn vị vận chuyển:</td>
+                        <td>@Model.MaNvcNavigation.TenNvc</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold">Xác nhận xóa?</td>
+                        <td>
+                            <form asp-action="Delete">
+                                <input type="hidden" asp-for="MaDdh" />
+                                <input type="submit" value="Xác nhận xóa" class="btn btn-danger" />
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

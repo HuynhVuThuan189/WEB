@@ -1,0 +1,195 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    var danhthu = ViewData["DanhThu"];
+}
+@{
+    List<Dondathang> list_ddh = (List<Dondathang>)ViewBag.ListDDH;
+    var sList_khachhang = (SortedList<string, int>)ViewBag.sListKH;
+    var slkh = (int)ViewBag.SLKH;
+    var slnv = (int)ViewBag.SLNV;
+    var slsp = (int)ViewBag.SLSP;
+    var sldh = (int)ViewBag.SLDH;
+    var slist_sp = (SortedList<string, string>)ViewBag.sListSP;
+}
+
+<div class="row">
+    <div class="col-lg-5">
+        <div class="row">
+                <div class="col-md-6">
+                    <div class="card" style="background-color: #b7e3cc">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-center align-items-center">
+                            <a class="btn" href="Admin/AdminKhachhangs" style="border: none">
+                                <div>
+                                    <p class="m-b-0 text-muted" style="font-size: 18px">Khách Hàng</p>
+                                    <div>
+                                        <div>
+                                            <h2 class="m-b-0">@slkh</h2>
+                                        </div>
+                                        <h2 class="icon-holder">
+                                            <i class="anticon anticon-user-add" style="color: #6a9550"></i>
+                                        </h2>
+                                    </div>
+                                </div>
+                            </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="col-md-6">
+                    <div class="card" style="background-color: #cfe8ef">
+                        <div class="card-body">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <a class="btn" href="Admin/AdminNhanviens" style="border: none">
+                                <div>
+                                    <p class="m-b-0 text-muted" style="font-size: 18px">Nhân viên</p>
+                                    <div>
+                                        <div>
+                                            <h2 class="m-b-0">@slnv</h2>
+                                        </div>
+                                        <h2 class="icon-holder">
+                                            <i class="fas fa-male" style="color: #196ba0"></i>
+                                        </h2>
+                                    </div>
+                                </div>
+                            </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                      
+                <div class="col-md-6">
+                    <div class="card" style="background-color: #f1dede">
+                        <div class="card-body">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <a class="btn" href="Admin/AdminSanphams" style="border: none">
+                                <div>
+                                    <p class="m-b-0 text-muted" style="font-size: 18px">Sản phẩm</p>
+                                    <div>
+                                        <div>
+                                            <h2 class="m-b-0">@slsp</h2>
+                                        </div>
+                                        <h2 class="icon-holder">
+                                            <i class="fab fa-product-hunt" style="color: #995253"></i>
+                                        </h2>
+                                    </div>
+                                </div>
+                            </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                      
+                <div class="col-md-6">
+                    <div class="card" style="background-color: #faf4d3">
+                        <div class="card-body">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <a class="btn" href="Admin/AdminDondathangs" style="border: none">
+                                <div>
+                                    <p class="m-b-0 text-muted" style="font-size: 18px">Đơn đặt hàng</p>
+                                    <div>
+                                        <div>
+                                            <h2 class="m-b-0">@sldh</h2>
+                                        </div>
+                                        <h2 class="icon-holder">
+                                            <i class="anticon anticon-form" style="color:#f1c800"></i>
+                                        </h2>
+                                    </div>
+                                </div>
+                            </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+    <div class="col-lg-7">
+        <div class="card" style="background-color: #fcf8f8">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h5 style="color: orangered; font-size: 20px">Sản phẩm bán chạy</h5>
+                </div>
+                <div class="m-t-30">
+                    <ul class="list-group list-group-flush">
+                        @if (slist_sp != null)
+                        {
+                            foreach (var item in slist_sp)
+                            {
+                                <li class="list-group-item p-h-0" style="background-color: #fcf8f8">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <div class="d-flex">
+                                            <div>
+                                                <h6 class="m-b-0">
+                                                    <a href="javascript:void(0);" class="text-dark"> @item.Key</a>
+                                                </h6>
+                                                <span class="text-muted font-size-13">@item.Value</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            }
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body" >
+        <div class="d-flex justify-content-between align-items-center">
+            <h5 style="color: orangered; font-size: 20px">Đơn đặt hàng gần đây</h5>
+            <div>
+                <a href="Admin/AdminDondathangs" class="btn btn-sm btn-warning">View All</a>
+            </div>
+        </div>
+        <div class="m-t-30">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr style="font-size: 18px; background-color: #C7E8E4">
+                            <th>Mã đơn đặt hàng</th>
+                            <th>Mã khách hàng</th>
+                            <th>Tổng đơn hàng</th>
+                            <th>Số tiền giảm</th>
+                            <th>Thành tiền</th>
+                            <th>Ngày đặt hàng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (list_ddh != null)
+                        {
+                            foreach (var item in list_ddh)
+                            {
+                                <tr>
+                                    <td>
+                                        @item.MaDdh
+                                    </td>
+                                    <td>
+                                        @item.MaKh
+                                    </td>
+                                    <td>
+                                        @item.TongDonHang.Value.ToString("#,##0") VNĐ
+                                    </td>
+                                    <td>
+                                        @item.SoTienGiam.Value.ToString("#,##0") VNĐ
+                                    </td>
+                                    <td>
+                                        @item.ThanhTien.Value.ToString("#,##0") VNĐ
+                                    </td>
+                                <td>
+                                    @String.Format("{0:dd/MM/yyyy}", item.NgayDatHang)
+                                </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
